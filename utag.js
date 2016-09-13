@@ -77,6 +77,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                 }
             },
             /**
+             * location.hostname function.
              * checks if hostname ends on value.
              * @param  {str} a   :location.hostname
              * @param  {arr} b   :location.hostname split by (.)
@@ -91,6 +92,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
+             * Wait Queue.
              * tags set to wait.
              * this picks up a utag_data items added after utag.js was loaded
              * Gotcha: Data layer set after utag.js will not overwrite something already set via an extension.  Only "new" values are copied from utag_data
@@ -240,6 +242,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
+             * ReadDOM.
              * set dom variables.
              * @param {obj} o :object with dom values.
              */
@@ -258,7 +261,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * [RDcp description]
+             * ReadData Copy.
+             * b obj breaking up into individual variables.
              * @param {[type]} o [description]
              * @param {[type]} b [description]
              * @param {[type]} c [description]
@@ -266,6 +270,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              */
             RDcp: function(o, b, c, d) {
                 b = utag.loader.RC();
+                // good point to check u.map
                 for (d in b) {
                     if (d.match(/utag_(.*)/)) {
                         for (c in utag.loader.GV(b[d])) {
@@ -283,7 +288,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * [RDqp description]
+             * Read Query Parameters.
              * @param {[type]} o [description]
              * @param {[type]} a [description]
              * @param {[type]} b [description]
@@ -2931,6 +2936,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
         utag.handler.cfg_extend = [];
         utag.loader.initcfg = function() {
             utag.loader.cfg = {};
+            // force loading sort for chrome
             utag.loader.cfgsort = [];
         };
         utag.loader.initcfg();
