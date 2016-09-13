@@ -212,7 +212,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} d [description]
              * @param {[type]} f [description]
              */
-            OU: function(a, b, c, d, f) {utag.loader.EV
+            OU: function(a, b, c, d, f) {
+                utag.loader.EV
                 try {
                     if (typeof utag.data['cp.OPTOUTMULTI'] != 'undefined') {
                         c = utag.loader.cfg;
@@ -1019,10 +1020,10 @@ if (typeof utag == 'undefined' && !utag_condload) {
 
                         /**
                          * [description]
-                         * @param  {[type]} a [description]
-                         * @param  {[type]} b [description]
-                         * @param  {[type]} c [description]
-                         * @return {[type]}   [description]
+                         * @param  {str} a:
+                         * @param  {obj} b:
+                         * @param  {num} c:
+                         * @return {str}
                          */
                         'lh': function(a, b, c) {
                             a = '' + location.hostname;
@@ -1085,12 +1086,26 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                 utag.loader.END();
                             }
                         },
+
+                        /**
+                         * Attach Script.
+                         *
+                         * @param  {[type]} a [description]
+                         * @param  {[type]} b [description]
+                         * @param  {[type]} c [description]
+                         * @param  {[type]} d [description]
+                         *
+                         * @return {[type]}   [description]
+                         */
                         'AS': function(a, b, c, d) {
                             utag.send[a.id] = a;
                             if (typeof a.src == 'undefined') {
                                 a.src = utag.cfg.path + ((typeof a.name != 'undefined') ? a.name : 'ut' + 'ag.' + a.id + '.js');
                             }
                             a.src += (a.src.indexOf('?') > 0 ? '&' : '?') + 'utv=' + (a.v ? utag.cfg.template + a.v : utag.cfg.v);
+                            //////////////////
+                            // utag report  //
+                            //////////////////
                             utag.rpt['l_' + a.id] = a.src;
                             b = document;
                             this.f[a.id] = 0;
