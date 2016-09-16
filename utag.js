@@ -1,4 +1,3 @@
-// tealium universal tag - utag.loader ut4.41.201609062336, Copyright 2016 Tealium.com Inc. All Rights Reserved.
 //  Run Extensions scoped to “Pre-Loader”
 //  Process Data Layer
 //  Evaluate Load Rules
