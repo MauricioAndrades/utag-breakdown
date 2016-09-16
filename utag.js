@@ -33,6 +33,7 @@ try {
     console.log(e);
 }
 
+// This code determines whether or not utag is already defined. If utag is defined then all logic is skipped - this helps with sites that tag utag.js twice. If utag is undefined then all logic is ran.
 if (typeof utag == 'undefined' && !utag_condload) {
     /** @type {obj} initialize utag.obj */
     var utag = {
@@ -77,7 +78,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                 }
             },
             /**
-             * location.hostname function.
+             * returns the location.hostname without the subdomain. e.g. tealium.com
              * checks if hostname ends on value.
              * @param  {str} a   :location.hostname
              * @param  {arr} b   :location.hostname split by (.)
@@ -92,8 +93,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * Wait Queue.
-             * tags set to wait.
+             * Wait Queue:
+             * responsible for determining the number of active tags - not just active tags that load on the page - that are part of the wait queue to be loaded at DOM Ready.
              * this picks up a utag_data items added after utag.js was loaded
              * Gotcha: Data layer set after utag.js will not overwrite something already set via an extension.  Only "new" values are copied from utag_data
              * for case where utag_data is set after utag.js is loaded
@@ -145,6 +146,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
+             * Add Script: responsible for injecting vendor tags into the page source code - handles scripts, iframes, and pixels.
              * make network calls for non-bundled tags
              * @param {[type]} a [description]
              * @param {[type]} b [description]
@@ -189,7 +191,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * create local b object for each t7ag
+             *  Get Value - responsible for verifying data and ensuring variables are not of type function.
+             * create local b object for each tag
              * @param {obj} a [description]
              * @param {obj} b [description]
              * @param {str} c [description]
@@ -428,7 +431,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * Read Data: Library begins to read data such as the UDO, Meta Date, DOM data
+             * Read Data:
+             * responsible for managing the reading of meta data, query string parameters, site cookies, utag cookies, and DOM elements.
              * @param {obj} o [description]
              * @param {obj} a [description]
              */
@@ -460,7 +464,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * parse utag.cookie.
+             * Read Cookie: parse utag.cookie.
              * @param {[type]} a  [description]
              * @param {[type]} x  [description]
              * @param {str} b     :"utag_main=v_id:015703cfc3fc0016a350be0ce0b205077001606f0093c$_sn:1$_ss:1$_st:1473239530301$ses_id:1473237730301%3Bexp-session$_pn:1%3Bexp-session"
@@ -557,7 +561,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * [SC description]
+             * SetCookie: Sets cookies and exparations dates.
              * @param {[type]} a [description]
              * @param {[type]} b [description]
              * @param {[type]} c [description]
@@ -657,7 +661,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * [LOAD description]
+             * Load:
+             * responsible for firing the utag libraries.
              * @param {[type]} a [description]
              * @param {[type]} b [description]
              * @param {[type]} c [description]
@@ -720,8 +725,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * called during loading phase. find and map utag.data.
-             * DOM ready extensions.
+             * Event: responsible for managing the DOM state and any code dependent on the DOM state. called during loading phase. find and map utag.data.  contains all Extensions scoped to DOM Ready.
              * @param {[type]} a [description]
              * @param {[type]} b [description]
              * @param {fnc} c   [description]
@@ -831,8 +835,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
         },
 
         /**
-         * utag debugger.
-         * to enable: document.cookie="utagdb=true"
+         * Debug: responsible for outputting current status to the console log, as well as firing Tag Watch emails. to enable: document.cookie="utagdb=true"
          * @param {str} a :passed to DB function from caller. Usually the caller.
          * @param {[type]} b [description]
          */
@@ -860,7 +863,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
         },
 
         /**
-         * [RP description]
+         * Report: responsible for firing off the image request containing all errors recorded by DB.
          * @param {[type]} a [description]
          * @param {[type]} b [description]
          * @param {[type]} c [description]
@@ -877,13 +880,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
         },
 
         /**
-         * method for tracking dynmic load content. PageView.
-         * call should exist in the dynamic content loaded within the page. do not call this method on a static page load.
-         * Even if the page load has dynamic content from an include file on page load,
-         * the use of these calls is incorrect since the dynamic content is placed on page load.
-         * ex:
-         * utag.view({ page:'product quick view', section:'products', product:'Tealium iQ', event:'add to cart' })
-         *
+         * view: method for tracking dynmic load content. PageView. call should exist in the dynamic content loaded within the page. do not call this method on a static page load. Even if the page load has dynamic content from an include file on page load,  the use of these calls is incorrect since the dynamic content is placed on page load. ex:  utag.view({ page:'product quick view', section:'products', product:'Tealium iQ', event:'add to cart' })
          * @param  {obj} a :JSON obj w data.
          * @param  {fun} c :a callback function (optional).
          * @param  {arr} d :an array of Tags (optional: if used, these are the only Tags that will fire).
@@ -900,7 +897,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
         },
 
         /**
-         *
+         * to trigger a link click call the utag.link() method.
          * @param  {obj} a :JSON obj w/data.
          * @param  {fnc} c :optional cb().
          * @param  {arr} d :array of tags to load.
@@ -1683,6 +1680,17 @@ if (typeof utag == 'undefined' && !utag_condload) {
                             }
                             if (c == 0) this.INIT();
                         },
+                        /**
+                         * this is the last function to be called now that all other functions are declared and is the initialization method for running Tealium on a webpage. It triggers utag.loader.GET which is responsible for running utag.pre and utag.handler.extend (described above). It then determines which tags are added to the wait queue and which get loaded immediately.
+                         *
+                         * @param  {[type]} a [description]
+                         * @param  {[type]} b [description]
+                         * @param  {[type]} c [description]
+                         * @param  {[type]} d [description]
+                         * @param  {[type]} e [description]
+                         *
+                         * @return {[type]}   [description]
+                         */
                         'INIT': function(a, b, c, d, e) {
                             utag.DB('utag.loader.INIT');
                             if (this.ol == 1) return -1;
@@ -1924,7 +1932,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                             }
                         },
                         /**
-                         * [description]
+                         *  responsible for executing All Tags extensions as well as calling the individual tag templates via utag.sender[c].send(a, utag.handler.C(b));
                          *
                          * @param  {[type]} a [description]
                          * @param  {[type]} b [description]
@@ -2024,7 +2032,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                         },
 
                         /**
-                         * [description]
+                         * copies the parameter passed into it and outputs to the "b" object. Note: while this works correctly for strings, it is still only a reference for arrays so if you edit the array in one place it edits the array in all places.
                          *
                          * @param  {[type]} a [description]
                          * @param  {[type]} b [description]
@@ -2232,6 +2240,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                             }
                         }
                     },
+                    //  represents the "Advanced Settings" of the Tag Configurations.
                     'cfg': {
                         'template': 'ut4.41.',
                         'load_rules_ajax': true,
@@ -2296,6 +2305,10 @@ if (typeof utag == 'undefined' && !utag_condload) {
                             utag.DB(e);
                         }
                     },
+                    /**
+                     * gathers all page data into utag.data and then runs the load rules
+                     * @return {[type]} [description]
+                     */
                     'pre': function() {
                         utag.loader.initdata();
                         utag.pagevars();
@@ -2952,6 +2965,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
         utag.loader.initcfg = function() {
             utag.loader.cfg = {};
             // force loading sort for chrome
+            // a fix for browsers like Chrome that overwrite the order that tags should fire
             utag.loader.cfgsort = [];
         };
         utag.loader.initcfg();
