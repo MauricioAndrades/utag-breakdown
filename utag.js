@@ -339,6 +339,10 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
+             * Upon a visitors first visit to a website, the Tealium library will check to see if the v_id exists within the utag_main cookie. If v_id does not exist the Tealium library will create it and store in the utag_main cookie. If v_id does exist, the Tealium library will proceed to use the current v_id value.
+             */
+
+            /**
              * read localstorage
              * @param {[type]} o [description]
              */
