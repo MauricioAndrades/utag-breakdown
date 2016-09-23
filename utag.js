@@ -1,3 +1,7 @@
+// Line by line utag.js breakdown. Work in progress as I encounter problems on each function. If making edits please
+// follow the JSDoc standard.
+// https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler
+
 //  Run Extensions scoped to “Pre-Loader”
 //  Process Data Layer
 //  Evaluate Load Rules
