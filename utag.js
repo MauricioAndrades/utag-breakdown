@@ -1,15 +1,22 @@
-// Line by line utag.js breakdown. Work in progress as I encounter problems on each function. If making edits please
-// follow the JSDoc standard.
-// https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler
+/**
+ * Line by line utag.js breakdown. Work in progress as I encounter problems on each function.
+ * If making edits please follow the JSDoc standard.
+ * https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler
+ *
+ * Note:
+ *     * I am using shorthand notation for prop values. str, arr, bol etc.
+ *     * Inline logic code is differantiated from compiler code by using "//" instead.
+ */
 
-//  Run Extensions scoped to “Pre-Loader”
-//  Process Data Layer
-//  Evaluate Load Rules
-//  Run Extensions scoped to “All Tags”
-//  Load Bundled Vendor Tags and Vendor Tags with their Wait Flag set to “Off”
-//  Load Vendor Tags, their Extensions, and Mappings
-//  DOM Ready, DOM Ready scoped Extensions, and the Send Function
-//  After Page Load: utag.view() and Advanced Configurations
+/**
+ * Run Extensions scoped to “Pre-Loader”
+ * Process Data Layer
+ * Evaluate Load Rules
+ * Run Extensions scoped to “All Tags”
+ * Load Bundled Vendor Tags and Vendor Tags with their Wait Flag set to “Off”
+ * Load Vendor Tags, their Extensions, and Mappings DOM Ready, DOM Ready scoped Extensions, and the Send Function
+ * After Page Load: utag.view() and Advanced Configurations
+ */
 
 var utag_condload = false;
 try {
