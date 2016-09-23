@@ -962,7 +962,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * standard utag.js file logic is initiated
              * Passes the type of event (either a view or link event) and the utag.data object as parameters to the utag.handler.trigger function. The type of event is passed to the trigger method as the 'a' object, and the utag.data object is passed to the trigger method as the 'b' object.
              * Also runs the 'All Tags'-scoped Extensions.
-             * Instantiates b obj.
+             * First instantiation of tbe b obj.
              *
              * @param {obj} a :event type.
              * @param {obj} b :utag.data reference.
