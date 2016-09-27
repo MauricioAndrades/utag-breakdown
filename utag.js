@@ -117,12 +117,15 @@ if (typeof utag == 'undefined' && !utag_condload) {
             WQ: function(a, b, c, d, g) {
                 utag.DB('WQ:' + utag.loader.wq.length);
                 try {
+                    // check if udoname prop is set as utag_data;
+                    // pull that info into utag.data
                     if (utag.udoname && utag.udoname.indexOf('.') < 0) {
                         utag.ut.merge(utag.data, window[utag.udoname], 0);
                     }
                     // TBD: utag.handler.RE('view',utag.data,"bwq")
                     // process load rules again if this flag is set
                     if (utag.cfg.load_rules_at_wait) {
+                        // call loadrules and pass utag.data as b.
                         utag.handler.LR(utag.data);
                     }
                 } catch (e) {
@@ -283,11 +286,15 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} d [description]
              */
             RDcp: function(o, b, c, d) {
+                // read cookie params
                 b = utag.loader.RC();
                 // good point to check u.map
                 for (d in b) {
+                    // if we're working with utag_data;
                     if (d.match(/utag_(.*)/)) {
+                        // loop and check data is not a function
                         for (c in utag.loader.GV(b[d])) {
+                            // add local cookieparams prefix 'cp_utag'
                             o['cp.utag_' + RegExp.$1 + '_' + c] = b[d][c];
                         }
                     }
@@ -1867,9 +1874,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
                         /**
                          * [description]
                          *
-                         * @param  {[type]} b [description]
+                         * @param  {object} b :utag.data + utag_data;
                          *
-                         * @return {[type]}   [description]
                          */
                         'LR': function(b) {
                             utag.DB('Load Rules');
@@ -2930,7 +2936,10 @@ if (typeof utag == 'undefined' && !utag_condload) {
      */
     utag.loader.initdata = function() {
         try {
+            // if utag_data is present on then utag.data equals utag_data;
+            // if it's not. Just initialize utag.data to an {};
             utag.data = (typeof utag_data != 'undefined') ? utag_data : {};
+            // set default UDO variable name
             utag.udoname = 'utag_data';
         } catch (e) {
             utag.data = {};
@@ -2956,9 +2965,9 @@ if (typeof utag == 'undefined' && !utag_condload) {
      * Retrieves the page's data, such as: JavaScript page variables, DOM data, cookies values, and meta tags.
      * Evaluates load rules.
      * Declares the 'All Tags'-scoped Extensions, which will run later.
-     * @return {[type]} [description]
      */
     utag.pre = function() {
+        // if utag_data exists, utag.data = utag_data;
         utag.loader.initdata();
         utag.pagevars();
         try {

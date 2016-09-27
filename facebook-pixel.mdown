@@ -1,0 +1,155 @@
+Facebook Pixel
+The Facebook pixel is our tool that allows you to track ad effectiveness outside of the Facebook network to other properties on the web.
+
+News Feed
+News Feed is the heart of the Facebook experience. It's where your audience finds the things that matter to them. News Feed is a list of stories that are constantly being updated based on the people and Pages your audience follows on Facebook.
+
+Unpublished Page Post
+An unpublished Page post is a Page post ad that is targeted to a specific audience and does not appear on your Page’s Timeline. It only appears in the News Feeds for the people you are targeting with your ad.
+
+ROAS (Return on Ad Spend)
+Return on Ad Spend is a metric used to measure the effectiveness of a Facebook marketing campaign. We prefer to measure how much revenue is generated for every dollar spent on Facebook advertising.
+
+Desktop Right Column
+Desktop Right Column refers to the ad placement option where an ad won't appear in News Feed, but instead appears in the right-hand column on Facebook. Right Column ads are only available for desktop placement, not mobile.
+
+Conversion Lift
+Conversion Lift enables advertisers to determine the additional business driven online or offline from people reached by Facebook ads across devices. Conversion Lift leverages a scientific approach used by other industries and uses randomized test and control groups. 
+
+Facebook Pixel
+The Facebook pixel is our tool that allows you to track ad effectiveness outside of the Facebook network to other properties on the web.
+
+News Feed
+News Feed is the heart of the Facebook experience. It's where your audience finds the things that matter to them. News Feed is a list of stories that are constantly being updated based on the people and Pages your audience follows on Facebook.
+
+Unpublished Page Post
+An unpublished Page post is a Page post ad that is targeted to a specific audience and does not appear on your Page’s Timeline. It only appears in the News Feeds for the people you are targeting with your ad.
+
+ROAS (Return on Ad Spend)
+Return on Ad Spend is a metric used to measure the effectiveness of a Facebook marketing campaign. We prefer to measure how much revenue is generated for every dollar spent on Facebook advertising.
+
+Desktop Right Column
+Desktop Right Column refers to the ad placement option where an ad won't appear in News Feed, but instead appears in the right-hand column on Facebook. Right Column ads are only available for desktop placement, not mobile.
+
+Conversion Lift
+Conversion Lift enables advertisers to determine the additional business driven online or offline from people reached by Facebook ads across devices. Conversion Lift leverages a scientific approach used by other industries and uses randomized test and control groups. 
+
+Facebook Pixel
+The Facebook pixel is our tool that allows you to track ad effectiveness outside of the Facebook network to other properties on the web.
+
+News Feed
+News Feed is the heart of the Facebook experience. It's where your audience finds the things that matter to them. News Feed is a list of stories that are constantly being updated based on the people and Pages your audience follows on Facebook.
+
+Unpublished Page Post
+An unpublished Page post is a Page post ad that is targeted to a specific audience and does not appear on your Page’s Timeline. It only appears in the News Feeds for the people you are targeting with your ad.
+
+ROAS (Return on Ad Spend)
+Return on Ad Spend is a metric used to measure the effectiveness of a Facebook marketing campaign. We prefer to measure how much revenue is generated for every dollar spent on Facebook advertising.
+
+Desktop Right Column
+Desktop Right Column refers to the ad placement option where an ad won't appear in News Feed, but instead appears in the right-hand column on Facebook. Right Column ads are only available for desktop placement, not mobile.
+
+Conversion Lift
+Conversion Lift enables advertisers to determine the additional business driven online or offline from people reached by Facebook ads across devices. Conversion Lift leverages a scientific approach used by other industries and uses randomized test and control groups. 
+
+Timeline
+Sometimes referred to as a Facebook profile, a Timeline is the space on a person's profile where they can see their own posts, posts from friends, and stories they're tagged in — all organized by the date of the posts. Posts can be made up of photos, videos, and experiences that tell a story.
+
+Page
+Pages are like personal profiles, except they're used by businesses, brands, and organizations to share their stories and connect with people. Like Timelines, businesses can customize Pages by posting stories, pictures, videos, and more. People who like a Page can get updates in their News Feeds, as can their friends.
+
+Post
+A post is a story you share with your audience. You use posts to connect with and engage your audience. Posts can include text, images, and video.
+
+Page Like
+People connect with your brand through liking your page. When more people like your Facebook Page, it helps you build your reputation, stay connected with the people who support you, and find new customers.
+
+Reaction
+In addition to someone liking one of your Facebook posts, they can also choose from other emoticons — including love, haha, wow, sad and angry — to indicate their feelings. Each emoticon is called a reaction. The term appears only in your notifications. 
+
+
+Brand
+Your brand is the emotional connection that people make with your business. It is based on everything you say and do as a company, and includes the messages you communicate through advertising — the values and beliefs of your company, and the experiences that you offer your customers. A strong brand will set your business apart, and is an invaluable intangible asset.
+
+Campaign
+Your campaign revolves around the advertising objective you choose, like clicks to website, brand awareness, or mobile app installs. When setting up your campaign, you'll create one or more ad set to help optimize and measure results for each objectives. Within each ad set are the ads themselves. All ads in one ad set share the same daily or lifetime budget, schedule, bid type, bid info, and targeting data.
+
+Ad Auction
+For each ad impression, our ad auction system selects the best ads to run based on the maximum bids and performance of the ad. All ads on Facebook compete against each other in this process, and those our system determines as most likely to be successful will win the auction.
+
+Conversion Optimization
+A tool for advertisers who want to drive actions on their mobile apps or websites. It allows advertisers to optimize their ad delivery specifically for the outcomes they care about by showing their ads to the people most likely to convert. When you optimize your ad for conversion, you enter a bid that reflects how much each conversion is worth to you. Bidding higher allows Facebook to explore more people who show potential to convert, or you can let Facebook set the bid for you and we'll try to get you as many conversions as possible based on your budget.
+
+Cost Per Click (CPC)
+The amount you're paying on average for each click on your ad. Average CPC is calculated as total cost for ad / total clicks.
+
+Cost Per 1000 Impressions (CPM)
+Your average CPM is the amount you're paying on average for every 1,000 impressions of your ad. This is calculated as total cost for ad / total impressions / 1000.
+
+Impressions
+This is the number of times your ad was served. On omobile apps, an ad is counted as served the first time it's viewed. On all other Facebook interfaces, it's the first time your ad is placed in someone's News Feed or a Desktop Right Column. 
+
+
+Objective
+When creating an ad on Facebook or Instagram, you'll start by choosing an objective. Your objective reflects what you want to achieve with your ads, like increase website conversions or increase app engagement. Available ad types and placements will vary, based on your chosen objective. We currently offer the following objectives:
+
+Boost your posts
+Promote your page
+Reach people near your business
+Increase brand awareness
+Send people to your website
+Get installs of your app
+Raise attendance at your event
+Get video views
+Collect leads for your business
+Increase conversions on your website
+Increase engagement in your app
+Get people to claim your offer
+
+Ad Type
+An ad type is the format of your ad. Available ad types are:
+
+Image
+Video
+Carousel
+Slideshow
+Canvas
+
+Ad Placement
+Your placement is where you would like your ads shown. For each ad, you can choose multiple placements. Placement options are:
+
+Mobile News Feed
+Desktop News Feed
+Right Column
+Instagram
+Audience Network
+
+Ad Set
+An ad set includes one or more ads, a budget, and a schedule. You can create an ad set for each of your audience segments by making the ads target the same audience within the ad set. This helps control the amount you spend on each audience, decide when each audience will see your ads, and see metrics specific to each audience. You can also determine where the ads appear on Facebook within the ad set.
+
+Ad
+An individual ad includes creative — the image, video, and/or text it uses — a target audience, and bid. Your ads appear along with the stories that are relevant to your audience so it’s important that your creative is aligned with their interests.
+
+Clicks
+The total number of times someone clicks on your ad. Depending on what you're promoting, this can include event responses or app installs.
+
+Clicks and Actions
+We count actions differently than clicks. Actions explain in greater detail what happened as a result of your Facebook ad within one day of someone seeing it, or 28 days after someone clicks on your ad. The clicks metric counts the number of clicks your ad received.
+
+Conversions
+Conversions are customer-completed actions, like purchases or adding items to a cart on a website.
+
+Video Views
+The total number of times your video was viewed for at least three seconds.
+
+Core Audiences
+A Core Audiences allows you to target people based on their demographics, location, interests, and behaviors. This data is pulled from the information they share in their profiles on Facebook and the behaviors they exhibit on our platform.
+
+Custom Audiences
+A Custom Audience lets you reach people based on an imported contact list or remarket to people based on the actions they've taken on your website or mobile app.
+
+Lookalike Audiences
+A Lookalike Audience is a group of people on Facebook who share traits — like location, age, gender and interests — with your customers. You can choose to create a Lookalike Audience that targets people who are similar to your Custom Audience.
+
+Partner Categories
+Partner categories is a targeting option that uses data from trusted third-party data partners. That data allows you to target people based on certain attributes, like their income or whether or not they're a homeowner. You may also be able to target people based on things they do off of Facebook, like purchasing a new truck. 
