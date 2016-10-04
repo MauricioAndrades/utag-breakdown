@@ -18,8 +18,8 @@
  * After Page Load: utag.view() and Advanced Configurations
  */
 
-var utag_condload = false;
-try {
+ var utag_condload = false;
+ try {
     (function() {
         // utag script creation
         function ul(src, a, b) {
@@ -95,7 +95,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {bol} c   :check if a has any of the values in c
              * @return {str||[]} :returns the end of localhost || []
              */
-            lh: function(a, b, c) {
+             lh: function(a, b, c) {
                 a = '' + location.hostname;
                 b = a.split('.');
                 c = (/\.co\.|\.com\.|\.org\.|\.edu\.|\.net\.|\.asn\./.test(a)) ? 3 : 2;
@@ -114,11 +114,11 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} d [description]
              * @param {[type]} g [description]
              */
-            WQ: function(a, b, c, d, g) {
+             WQ: function(a, b, c, d, g) {
                 utag.DB('WQ:' + utag.loader.wq.length);
                 try {
                     // check if udoname prop is set as utag_data;
-                    // pull that info into utag.data
+                    // pull that info into utag.dataz
                     if (utag.udoname && utag.udoname.indexOf('.') < 0) {
                         utag.ut.merge(utag.data, window[utag.udoname], 0);
                     }
@@ -126,6 +126,8 @@ if (typeof utag == 'undefined' && !utag_condload) {
                     // process load rules again if this flag is set
                     if (utag.cfg.load_rules_at_wait) {
                         // call loadrules and pass utag.data as b.
+                        debugger;
+                        utag.data = scrub(utag.data);
                         utag.handler.LR(utag.data);
                     }
                 } catch (e) {
@@ -166,7 +168,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} c [description]
              * @param {[type]} d [description]
              */
-            AS: function(a, b, c, d) {
+             AS: function(a, b, c, d) {
                 utag.send[a.id] = a;
                 if (typeof a.src == 'undefined') {
                     a.src = utag.cfg.path + ((typeof a.name != 'undefined') ? a.name : 'ut' + 'ag.' + a.id + '.js');
@@ -210,7 +212,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {obj} b [description]
              * @param {str} c [description]
              */
-            GV: function(a, b, c) {
+             GV: function(a, b, c) {
                 b = {};
                 // copy properties in a obj passed to function
                 for (c in a) {
@@ -228,7 +230,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} d [description]
              * @param {[type]} f [description]
              */
-            OU: function(a, b, c, d, f) {
+             OU: function(a, b, c, d, f) {
                 utag.loader.EV
                 try {
                     if (typeof utag.data['cp.OPTOUTMULTI'] != 'undefined') {
@@ -263,9 +265,9 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * set dom variables.
              * @param {obj} o :object with dom values.
              */
-            RDdom: function(o) {
+             RDdom: function(o) {
                 var d = document || {},
-                    l = location || {};
+                l = location || {};
                 o['dom.referrer'] = d.referrer;
                 o['dom.title'] = '' + d.title;
                 o['dom.domain'] = '' + l.hostname;
@@ -285,7 +287,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} c [description]
              * @param {[type]} d [description]
              */
-            RDcp: function(o, b, c, d) {
+             RDcp: function(o, b, c, d) {
                 // read cookie params
                 b = utag.loader.RC();
                 // good point to check u.map
@@ -315,7 +317,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} b [description]
              * @param {[type]} c [description]
              */
-            RDqp: function(o, a, b, c) {
+             RDqp: function(o, a, b, c) {
                 a = location.search + (location.hash + '').replace('#', '&');
                 if (utag.cfg.lowerqp) {
                     a = a.toLowerCase();
@@ -338,7 +340,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} b [description]
              * @param {[type]} h [description]
              */
-            RDmeta: function(o, a, b, h) {
+             RDmeta: function(o, a, b, h) {
                 a = document.getElementsByTagName('meta');
                 for (b = 0; b < a.length; b++) {
                     try {
@@ -364,16 +366,16 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * read localstorage
              * @param {[type]} o [description]
              */
-            RDva: function(o) {
+             RDva: function(o) {
                 /**
                  * Read visitor attributes in local storage
                  * @param  {[type]} o [description]
                  * @param  {[type]} l [description]
                  * @return {[type]}   [description]
                  */
-                var readAttr = function(o, l) {
+                 var readAttr = function(o, l) {
                     var a = '',
-                        b;
+                    b;
                     a = localStorage.getItem(l);
                     if (!a || a == '{}') {
                         return;
@@ -396,7 +398,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} o [description]
              * @param {[type]} a [description]
              */
-            RDut: function(o, a) {
+             RDut: function(o, a) {
                 o['ut.domain'] = utag.cfg.domain;
                 o['ut.version'] = utag.cfg.v;
                 // i.e. "view" or "link"
@@ -418,7 +420,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} a [description]
              * @param {[type]} c [description]
              */
-            RDses: function(o, a, c) {
+             RDses: function(o, a, c) {
                 a = (new Date()).getTime();
                 c = (a + parseInt(utag.cfg.session_timeout)) + '';
                 // cp.utag_main_ses_id will not be in the data layer when it has expired or this is first page view of all time
@@ -444,7 +446,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * read page variables function
              * @param {[type]} o [description]
              */
-            RDpv: function(o) {
+             RDpv: function(o) {
                 if (typeof utag.pagevars == 'function') {
                     utag.DB('Read page variables');
                     utag.pagevars(o);
@@ -457,7 +459,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {obj} o [description]
              * @param {obj} a [description]
              */
-            RD: function(o, a) {
+             RD: function(o, a) {
                 utag.DB('utag.loader.RD');
                 utag.DB(o);
                 utag.loader.RDcp(o);
@@ -509,7 +511,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {reg} s  :/^(.*);exp-(.*)$/
              * @param {dat} t  :timestamp
              */
-            RC: function(a, x, b, c, d, e, f, g, h, i, j, k, l, m, n, o, v, ck, cv, r, s, t) {
+             RC: function(a, x, b, c, d, e, f, g, h, i, j, k, l, m, n, o, v, ck, cv, r, s, t) {
                 o = {};
                 b = ('' + document.cookie != '') ? (document.cookie).split('; ') : [];
                 r = /^(.*?)=(.*)$/;
@@ -542,7 +544,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                             h[i] = utag.ut.decode(h[i]);
                                         v = h;
                                     } else
-                                        v = utag.ut.decode(g[1]);
+                                    v = utag.ut.decode(g[1]);
                                     j[g[0]] = v;
                                 } catch (er) {
                                     utag.DB(er);
@@ -597,7 +599,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} x [description]
              * @param {[type]} v [description]
              */
-            SC: function(a, b, c, d, e, f, g, h, i, j, k, x, v) {
+             SC: function(a, b, c, d, e, f, g, h, i, j, k, x, v) {
                 if (!a)
                     return 0;
                 if (a == 'utag_main' && utag.cfg.nocookie)
@@ -627,7 +629,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                             if (d[e] == null)
                                 d[e] = f;
                         } else if (c == 'd')
-                            delete d[e];
+                        delete d[e];
                         else if (c == 'a')
                             d[e] = (d[e] != null) ? (f - 0) + (d[e] - 0) : f;
                         else if (c == 'ap' || c == 'au') {
@@ -659,7 +661,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                 d[e] = g;
                             }
                         } else
-                            d[e] = f;
+                        d[e] = f;
                     }
                     h = [];
                     for (g in utag.loader.GV(d)) {
@@ -669,7 +671,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                             }
                             h.push(g + ':~' + d[g].join('|'));
                         } else
-                            h.push((g + ':').replace(/[\,\$\;\?]/g, '') + encodeURIComponent(d[g]));
+                        h.push((g + ':').replace(/[\,\$\;\?]/g, '') + encodeURIComponent(d[g]));
                     }
                     if (h.length == 0) {
                         h.push('');
@@ -689,7 +691,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} c [description]
              * @param {[type]} d [description]
              */
-            LOAD: function(a, b, c, d) {
+             LOAD: function(a, b, c, d) {
                 // utag.DB('utag.loader.LOAD:' + a)
                 if (!utag.loader.cfg) {
                     return;
@@ -752,7 +754,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {fnc} c   [description]
              * @param {[type]} d [description]
              */
-            EV: function(a, b, c, d) {
+             EV: function(a, b, c, d) {
                 if (b == 'ready') {
                     // may be called if no udo variables defined.
                     // try and find utag.data if not then try and map it?
@@ -771,7 +773,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                     if ((document.attachEvent || utag.cfg.dom_complete) ? document.readyState === 'complete' : document.readyState !== 'loading')
                     // setTimeout(func, [delay, param1, param2, ...])
                     // Calls a function or executes a code snippet after a specified delay.
-                        setTimeout(c, 1);
+                    setTimeout(c, 1);
                     else {
                         utag.loader.ready_q.push(c);
                         var RH;
@@ -780,7 +782,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                 /**
                                  * [RH description]
                                  */
-                                RH = function() {
+                                 RH = function() {
                                     // target.removeEventListener(type, listener[, useCapture])
                                     document.removeEventListener('DOMContentLoaded', RH, false);
                                     utag.loader.run_ready_q();
@@ -820,7 +822,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} v [description]
              * @param {[type]} w [description]
              */
-            END: function(b, c, d, e, v, w) {
+             END: function(b, c, d, e, v, w) {
                 if (this.ended) {
                     return;
                 }
@@ -860,7 +862,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
          * @param {str} a :passed to DB function from caller. Usually the caller.
          * @param {[type]} b [description]
          */
-        DB: function(a, b) {
+         DB: function(a, b) {
             // return right away if we've already checked the cookie
             if (utag.cfg.utagdb === false) {
                 return;
@@ -889,7 +891,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
          * @param {[type]} b [description]
          * @param {[type]} c [description]
          */
-        RP: function(a, b, c) {
+         RP: function(a, b, c) {
             if (typeof a != 'undefined' && typeof a.src != 'undefined' && a.src != '') {
                 b = [];
                 for (c in utag.loader.GV(a)) {
@@ -902,11 +904,21 @@ if (typeof utag == 'undefined' && !utag_condload) {
 
         /**
          * view: method for tracking dynmic load content. PageView. call should exist in the dynamic content loaded within the page. do not call this method on a static page load. Even if the page load has dynamic content from an include file on page load,  the use of these calls is incorrect since the dynamic content is placed on page load. ex:  utag.view({ page:'product quick view', section:'products', product:'Tealium iQ', event:'add to cart' })
+         * 
+         * commonly used for ajax page flows where the url does not refresh as the user navigates. i.e. (accordion checkout, single page application).
+         * 
+         * utag_data is not repurposed with these calls. You must manually pass the data obj.
+         * 
+         * Utag.js automatically triggers this function on pageload.
+         * 
+         * If your website loads utag.js only once per visit, and thus must manually trigger page views, you willsuppress the automatic page tracking to allow for custom tracking of the page. The Universal Tag alllows you to override certain behaviors via a global object named "window.utag_cfg_ovrd". To override the automatic page tracking add this line to your page prior to loading utag.js: window.utag_cfg_ovrd = {noview : true};
+         * 
+         * 
          * @param  {obj} a :JSON obj w data.
          * @param  {fun} c :a callback function (optional).
          * @param  {arr} d :an array of Tags (optional: if used, these are the only Tags that will fire).
          */
-        view: function(a, c, d) {
+         view: function(a, c, d) {
             return this.track({
                 event: 'view',
                 data: a,
@@ -919,12 +931,22 @@ if (typeof utag == 'undefined' && !utag_condload) {
 
         /**
          * to trigger a link click call the utag.link() method.
+         * 
+         * triggers a non-pageview event
+         * 
+         * best-practice: use variable 'event_name' to control tag behavior.
+         * 
+         * event_name: variable used to uniquely identify interaction that is tracked on site. This variable can be used through the tiq interface to configure load rules, extensions and data-mappings.
+         * 
+         * best-practice: event-name:
+         *     cart_add, cart_remove, cart_empty, cart_view, user_register, user_login, user_logout, custom_click.
+         * 
          * @param  {obj} a :JSON obj w/data.
          * @param  {fnc} c :optional cb().
          * @param  {arr} d :array of tags to load.
          * @method
          */
-        link: function(a, c, d) {
+         link: function(a, c, d) {
             return this.track({
                 event: 'link',
                 data: a,
@@ -943,7 +965,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
          * @param  {str} d :key in loadrules.
          * @return {bol}   :returns true if succesfully fired.
          */
-        track: function(a, b, c, d) {
+         track: function(a, b, c, d) {
             if (typeof a == 'string') {
                 a = {
                     event: a,
@@ -986,7 +1008,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {obj} b :utag.data reference.
              * @param {[type]} c [description]
              */
-            INIT: function(a, b, c) {
+             INIT: function(a, b, c) {
                 var unknown = {
                     'id': 'services-mauricio.main',
                     'o': {},
@@ -1025,7 +1047,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          * [description]
                          * @return {[type]} [description]
                          */
-                        'run_ready_q': function() {
+                         'run_ready_q': function() {
                             for (var i = 0; i < utag.loader.ready_q.length; i++) {
                                 utag.DB('READY_Q:' + i);
                                 try {
@@ -1043,7 +1065,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          * @param  {num} c:
                          * @return {str}
                          */
-                        'lh': function(a, b, c) {
+                         'lh': function(a, b, c) {
                             a = '' + location.hostname;
                             b = a.split('.');
                             c = (/\.co\.|\.com\.|\.org\.|\.edu\.|\.net\.|\.asn\./.test(a)) ? 3 : 2;
@@ -1059,7 +1081,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          * @param  {[type]} g [description]
                          * @return {[type]}   [description]
                          */
-                        'WQ': function(a, b, c, d, g) {
+                         'WQ': function(a, b, c, d, g) {
                             utag.DB('WQ:' + utag.loader.wq.length);
                             try {
                                 // this picks up a utag_data items added after utag.js was loaded
@@ -1115,7 +1137,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          *
                          * @return {[type]}   [description]
                          */
-                        'AS': function(a, b, c, d) {
+                         'AS': function(a, b, c, d) {
                             utag.send[a.id] = a;
                             if (typeof a.src == 'undefined') {
                                 a.src = utag.cfg.path + ((typeof a.name != 'undefined') ? a.name : 'ut' + 'ag.' + a.id + '.js');
@@ -1186,7 +1208,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                         },
                         'RDdom': function(o) {
                             var d = document || {},
-                                l = location || {};
+                            l = location || {};
                             o['dom.referrer'] = d.referrer;
                             o['dom.title'] = '' + d.title;
                             o['dom.domain'] = '' + l.hostname;
@@ -1205,7 +1227,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          * @param  {str} c : key value
                          * @param  {str} d : "utag.main"
                          */
-                        'RDcp': function(o, b, c, d) {
+                         'RDcp': function(o, b, c, d) {
                             b = utag.loader.RC();
                             for (d in b) {
                                 if (d.match(/utag_(.*)/)) {
@@ -1257,10 +1279,10 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          * @param  {obj} o : page and data attributes.
                          * @return {[type]}   [description]
                          */
-                        'RDva': function(o) {
+                         'RDva': function(o) {
                             var readAttr = function(o, l) {
                                 var a = '',
-                                    b;
+                                b;
                                 a = localStorage.getItem(l);
                                 if (!a || a == '{}') return;
                                 b = utag.ut.flatten({
@@ -1375,7 +1397,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                                 if (('' + g[1]).indexOf('~') == 0) {
                                                     h = g[1].substring(1).split('|');
                                                     for (i = 0; i < h.length; i++) h[i] = utag.ut.decode(h[i]);
-                                                    v = h;
+                                                        v = h;
                                                 } else v = utag.ut.decode(g[1]);
                                                 j[g[0]] = v;
                                             } catch (er) {
@@ -1614,30 +1636,30 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                 id: 'tiqapp'
                             });
 
-                            if (utag.cfg.noview != true) utag.handler.RE('view', b, 'end');
-                            utag.handler.INIT();
-                        },
-                        'initdata': function() {
-                            try {
-                                utag.data = (typeof utag_data != 'undefined') ? utag_data : {};
-                                utag.udoname = 'utag_data';
-                            } catch (e) {
-                                utag.data = {};
-                                utag.DB('idf:' + e);
-                            }
-                        },
-                        'loadrules': function(_pd, _pc) {
-                            var d = _pd || utag.data;
-                            var c = _pc || utag.cond;
-                            for (var l in utag.loader.GV(c)) {
-                                switch (l) {}
-                            }
-                        },
-                        'GET': function() {
-                            utag.cl = {
-                                '_all_': 1
-                            };
-                            utag.pre();
+                                if (utag.cfg.noview != true) utag.handler.RE('view', b, 'end');
+                                utag.handler.INIT();
+                            },
+                            'initdata': function() {
+                                try {
+                                    utag.data = (typeof utag_data != 'undefined') ? utag_data : {};
+                                    utag.udoname = 'utag_data';
+                                } catch (e) {
+                                    utag.data = {};
+                                    utag.DB('idf:' + e);
+                                }
+                            },
+                            'loadrules': function(_pd, _pc) {
+                                var d = _pd || utag.data;
+                                var c = _pc || utag.cond;
+                                for (var l in utag.loader.GV(c)) {
+                                    switch (l) {}
+                                }
+                            },
+                            'GET': function() {
+                                utag.cl = {
+                                    '_all_': 1
+                                };
+                                utag.pre();
                             ////////////////////////////////
                             // all tag scoped extensions  //
                             ////////////////////////////////
@@ -1649,7 +1671,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                              *
                              * @return {[type]} [description]
                              */
-                            utag.loader.initcfg = function() {
+                             utag.loader.initcfg = function() {
                                 utag.loader.cfg = {};
                                 utag.loader.cfgsort = [];
                             };
@@ -1712,7 +1734,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          *
                          * @return {[type]}   [description]
                          */
-                        'INIT': function(a, b, c, d, e) {
+                         'INIT': function(a, b, c, d, e) {
                             utag.DB('utag.loader.INIT');
                             if (this.ol == 1) return -1;
                             else this.ol = 1;
@@ -1753,21 +1775,21 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                     utag.loader.WQ();
                                 }
                             });
-                            else if (this.lq.length > 0) utag.loader.rf = 1;
-                            else if (this.lq.length == 0) utag.loader.END();
+                                else if (this.lq.length > 0) utag.loader.rf = 1;
+                                else if (this.lq.length == 0) utag.loader.END();
 
-                            return 1;
+                                return 1;
+                            },
+                            'rd_flag': 1,
+                            'initcfg': function() {
+                                utag.loader.cfg = {};
+                                utag.loader.cfgsort = [];
+                            },
+                            'cfg': {},
+                            'cfgsort': [],
+                            'ended': 1
                         },
-                        'rd_flag': 1,
-                        'initcfg': function() {
-                            utag.loader.cfg = {};
-                            utag.loader.cfgsort = [];
-                        },
-                        'cfg': {},
-                        'cfgsort': [],
-                        'ended': 1
-                    },
-                    'DB': function(a, b) {
+                        'DB': function(a, b) {
                         // return right away if we've already checked the cookie
                         if (utag.cfg.utagdb === false) {
                             return;
@@ -1868,7 +1890,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          *
                          * @return {[type]} [description]
                          */
-                        'test': function() {
+                         'test': function() {
                             return 1;
                         },
                         /**
@@ -1877,7 +1899,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          * @param  {object} b :utag.data + utag_data;
                          *
                          */
-                        'LR': function(b) {
+                         'LR': function(b) {
                             utag.DB('Load Rules');
                             for (var d in utag.loader.GV(utag.cond)) {
                                 utag.cond[d] = false;
@@ -1907,7 +1929,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          *
                          * @return {[type]}   [description]
                          */
-                        'RE': function(a, b, c, d, e, f, g) {
+                         'RE': function(a, b, c, d, e, f, g) {
                             if (c != 'alr' && !this.cfg_extend) {
                                 return 0;
                             }
@@ -1963,7 +1985,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          *
                          * @return {[type]}   [description]
                          */
-                        'trigger': function(a, b, c, d, e, f) {
+                         'trigger': function(a, b, c, d, e, f) {
                             utag.DB('trigger:' + a + (c && c.uids ? ':' + c.uids.join(',') : ''));
                             b = b || {};
                             utag.DB(b);
@@ -1997,7 +2019,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                              *
                              * @return {[type]}   [description]
                              */
-                            function sendTag(a, b, d) {
+                             function sendTag(a, b, d) {
                                 try {
                                     if (typeof utag.sender[d] != 'undefined') {
                                         utag.DB('SENDING: ' + d);
@@ -2060,8 +2082,9 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          *
                          * @return {[type]}   [description]
                          */
-                        'C': function(a, b, c) {
+                         C: function(a, b, c) {
                             b = {};
+                            // copy values in a obj into local b obj.
                             for (c in utag.loader.GV(a)) {
                                 if (a[c] instanceof Array) {
                                     b[c] = a[c].slice(0);
@@ -2135,7 +2158,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                          *
                          * @return {[type]}   [description]
                          */
-                        'flatten': function(o) {
+                         'flatten': function(o) {
                             // stop when arriving at a string, array, boolean, number (float or integer)
                             var a = {};
 
@@ -2329,7 +2352,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                      * gathers all page data into utag.data and then runs the load rules
                      * @return {[type]} [description]
                      */
-                    'pre': function() {
+                     'pre': function() {
                         utag.loader.initdata();
                         utag.pagevars();
                         try {
@@ -2392,7 +2415,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * [test description]
              * @return {[type]} [description]
              */
-            test: function() {
+             test: function() {
                 return 1;
             },
 
@@ -2400,7 +2423,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * reset and run load rules
              * @param {[type]} b [description]
              */
-            LR: function(b) {
+             LR: function(b) {
                 utag.DB('Load Rules');
                 for (var d in utag.loader.GV(utag.cond)) {
                     utag.cond[d] = false;
@@ -2427,7 +2450,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} f [description]
              * @param {[type]} g [description]
              */
-            RE: function(a, b, c, d, e, f, g) {
+             RE: function(a, b, c, d, e, f, g) {
                 if (c != 'alr' && !this.cfg_extend) {
                     return 0;
                 }
@@ -2484,7 +2507,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]} f [description]
              * @return {[type]}   [description]
              */
-            trigger: function(a, b, c, d, e, f) {
+             trigger: function(a, b, c, d, e, f) {
                 utag.DB('trigger:' + a + (c && c.uids ? ':' + c.uids.join(',') : ''));
                 b = b || {};
                 utag.DB(b);
@@ -2514,7 +2537,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                  * @param  {[type]} d [description]
                  * @return {[type]}   [description]
                  */
-                function sendTag(a, b, d) {
+                 function sendTag(a, b, d) {
                     try {
                         if (typeof utag.sender[d] != 'undefined') {
                             utag.DB('SENDING: ' + d);
@@ -2573,7 +2596,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} b [description]
              * @param {[type]} c [description]
              */
-            C: function(a, b, c) {
+             C: function(a, b, c) {
                 b = {};
                 for (c in utag.loader.GV(a)) {
                     if (a[c] instanceof Array) {
@@ -2595,7 +2618,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]} d [description]
              * @return {[type]}   [description]
              */
-            pad: function(a, b, c, d) {
+             pad: function(a, b, c, d) {
                 a = '' + ((a - 0).toString(16));
                 d = '';
                 if (b > a.length) {
@@ -2613,7 +2636,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]} b [description]
              * @return {[type]}   [description]
              */
-            vi: function(t, a, b) {
+             vi: function(t, a, b) {
                 if (!utag.v_id) {
                     a = this.pad(t, 12);
                     b = '' + Math.random();
@@ -2639,7 +2662,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]}  a [description]
              * @return {Boolean}   [description]
              */
-            hasOwn: function(o, a) {
+             hasOwn: function(o, a) {
                 // fun.call(thisArg[, arg1[, arg2[, ...]]])
                 return o != null && Object.prototype.hasOwnProperty.call(o, a);
             },
@@ -2650,7 +2673,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]}  a [description]
              * @return {Boolean}   [description]
              */
-            isEmptyObject: function(o, a) {
+             isEmptyObject: function(o, a) {
                 for (a in o) {
                     // fun.call(thisArg[, arg1[, arg2[, ...]]])
                     if (utag.ut.hasOwn(o, a)) {
@@ -2665,7 +2688,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]}  o [description]
              * @return {Boolean}   [description]
              */
-            isEmpty: function(o) {
+             isEmpty: function(o) {
                 var t = utag.ut.typeOf(o);
                 if (t == 'number') {
                     return isNaN(o);
@@ -2674,7 +2697,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                 } else if (t == 'string') {
                     return o.length === 0;
                 } else
-                    return utag.ut.isEmptyObject(o);
+                return utag.ut.isEmptyObject(o);
             },
 
             /**
@@ -2682,7 +2705,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]} e [description]
              * @return {[type]}   [description]
              */
-            typeOf: function(e) {
+             typeOf: function(e) {
                 return ({}).toString.call(e).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
             },
 
@@ -2691,7 +2714,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]} o [description]
              * @return {[type]}   [description]
              */
-            flatten: function(o) {
+             flatten: function(o) {
                 // stop when arriving at a string, array, boolean, number (float or integer)
                 var a = {};
 
@@ -2701,7 +2724,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                  * @param  {[type]} p [description]
                  * @return {[type]}   [description]
                  */
-                function r(c, p) {
+                 function r(c, p) {
                     if (Object(c) !== c || c instanceof Array) {
                         a[p] = c;
                     } else {
@@ -2728,7 +2751,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {[type]} d [description]
              * @return {[type]}   [description]
              */
-            merge: function(a, b, c, d) {
+             merge: function(a, b, c, d) {
                 if (c) {
                     for (d in utag.loader.GV(b)) {
                         a[d] = b[d];
@@ -2747,7 +2770,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param  {string} b :v_id:015703cfc3fc0016a350be0ce0b205077001606f0093c$_sn:1$_ss:1$_st:1473239530301$ses_id:1473237730301;exp-session$_pn:1;exp-session
              * @return {string} b :returns decodedURI of a.
              */
-            decode: function(a, b) {
+             decode: function(a, b) {
                 b = '';
                 try {
                     b = decodeURIComponent(a);
@@ -2789,7 +2812,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              *
              * @return {[type]}   [description]
              */
-            loader: function(o, a, b, c, l, m) {
+             loader: function(o, a, b, c, l, m) {
                 utag.DB(o);
                 a = document;
                 if (o.type == 'iframe') {
@@ -2859,7 +2882,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
      * contains utag script data.
      * @type {obj}
      */
-    utag.cfg = {
+     utag.cfg = {
         template: 'ut4.41.',
         // Enable load rules ajax feature by default
         load_rules_ajax: true,
@@ -2881,7 +2904,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
      * map js_page variables.
      * @param  {obj} ud :local reference to utag.data
      */
-    utag.pagevars = function(ud) {
+     utag.pagevars = function(ud) {
         ud = ud || utag.data;
         try {
             ud['js_page.modus'] = modus;
@@ -2934,7 +2957,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
      * initializes utag.data if non present on page.
      * called during loader stage when when !utag.data=true.
      */
-    utag.loader.initdata = function() {
+     utag.loader.initdata = function() {
         try {
             // if utag_data is present on then utag.data equals utag_data;
             // if it's not. Just initialize utag.data to an {};
@@ -2953,7 +2976,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
      * @param  {[type]} _pc [description]
      * @return {[type]}     [description]
      */
-    utag.loader.loadrules = function(_pd, _pc) {
+     utag.loader.loadrules = function(_pd, _pc) {
         var d = _pd || utag.data;
         var c = _pc || utag.cond;
         for (var l in utag.loader.GV(c)) {
@@ -2966,7 +2989,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
      * Evaluates load rules.
      * Declares the 'All Tags'-scoped Extensions, which will run later.
      */
-    utag.pre = function() {
+     utag.pre = function() {
         // if utag_data exists, utag.data = utag_data;
         utag.loader.initdata();
         utag.pagevars();
@@ -3005,7 +3028,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
      * @param {[type]} b [description]
      * @param {[type]} c [description]
      */
-    utag.loader.PINIT = function(a, b, c) {
+     utag.loader.PINIT = function(a, b, c) {
         utag.DB('Pre-INIT');
         if (utag.cfg.noload) {
             return;
