@@ -278,7 +278,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
             },
 
             /**
-             * ReadData Copy.
+             * Read: Cookie Params.
              * b obj breaking up into individual variables.
              * @param {[type]} o [description]
              * @param {[type]} b [description]
@@ -691,6 +691,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              */
              LOAD: function(a, b, c, d) {
                 // utag.DB('utag.loader.LOAD:' + a)
+                // check that loader logic is in place.
                 if (!utag.loader.cfg) {
                     return;
                 }
