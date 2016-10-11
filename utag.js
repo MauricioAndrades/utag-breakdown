@@ -118,7 +118,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
                 utag.DB('WQ:' + utag.loader.wq.length);
                 try {
                     // check if udoname prop is set as utag_data;
-                    // pull that info into utag.dataz
+                    // pull that info into utag.data
                     if (utag.udoname && utag.udoname.indexOf('.') < 0) {
                         utag.ut.merge(utag.data, window[utag.udoname], 0);
                     }
@@ -126,8 +126,6 @@ if (typeof utag == 'undefined' && !utag_condload) {
                     // process load rules again if this flag is set
                     if (utag.cfg.load_rules_at_wait) {
                         // call loadrules and pass utag.data as b.
-                        debugger;
-                        utag.data = scrub(utag.data);
                         utag.handler.LR(utag.data);
                     }
                 } catch (e) {
