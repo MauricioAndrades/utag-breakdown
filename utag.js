@@ -17,7 +17,7 @@
  * Load Vendor Tags, their Extensions, and Mappings DOM Ready, DOM Ready scoped Extensions, and the Send Function
  * After Page Load: utag.view() and Advanced Configurations
  */
-
+ 
  var utag_condload = false;
  try {
     (function() {
@@ -598,7 +598,7 @@ if (typeof utag == 'undefined' && !utag_condload) {
              * @param {[type]} v [description]
              */
              SC: function(a, b, c, d, e, f, g, h, i, j, k, x, v) {
-                if (!a)
+                if (!a) 
                     return 0;
                 if (a == 'utag_main' && utag.cfg.nocookie)
                     return 0;
@@ -1152,7 +1152,9 @@ if (typeof utag == 'undefined' && !utag_condload) {
                                 utag.DB('Attach sync: ' + a.src);
                                 a.uid = a.id;
                                 b.write('<script id="utag_' + a.id + '" src="' + a.src + '"></scr' + 'ipt>');
-                                if (typeof a.cb != 'undefined') a.cb();
+                                if (typeof a.cb != 'undefined') {
+                                    a.cb();
+                                }
                             } else if (a.load == 1 || a.load == 3) {
                                 if (b.createElement) {
                                     c = 'utag_services-mauricio.main_' + a.id;
